@@ -1,65 +1,136 @@
+import MotionFade from "@/components/motion/MotionFade";
+import Link from "next/link";
 import Image from "next/image";
+import TypewriterText from "@/components/TypewriterText";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="space-y-8 max-w-5xl mx-auto">
+      {/* Hero Section */}
+      <MotionFade>
+        <div className="text-center space-y-6 py-16">
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent2/20 blur-3xl rounded-full"></div>
+              <Image 
+                src="/website Logo.png" 
+                alt="Chem LMS Logo" 
+                width={200} 
+                height={200}
+                className="object-contain relative z-10"
+              />
+            </div>
+          </div>
+          <h1 className="text-6xl font-bold min-h-[80px] flex items-center justify-center gap-3">
+            <TypewriterText 
+              text="Welcome to" 
+              speed={80}
+              className="text-text"
+              loop={true}
+              pauseDelay={1500}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <span className="text-text">Chem LMS</span>
+          </h1>
+          <p className="text-xl text-mute max-w-2xl mx-auto">
+            Your complete Chemistry learning hub with curated videos, resources, notes, and community
+          </p>
+          <div className="flex gap-4 justify-center pt-6">
+            <Link 
+              href="/dashboard" 
+              className="glass px-8 py-4 hover:bg-panel/80 hover:-translate-y-0.5 transition-all font-semibold text-text text-lg hover:shadow-2xl"
+            >
+              Get Started →
+            </Link>
+            <Link 
+              href="/videos" 
+              className="glass px-8 py-4 hover:bg-panel/80 hover:-translate-y-0.5 transition-all font-semibold text-mute hover:text-text text-lg hover:shadow-2xl"
+            >
+              Browse Videos
+            </Link>
+          </div>
         </div>
-      </main>
+      </MotionFade>
+
+      {/* Features Grid */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <MotionFade delay={0.1}>
+          <div className="glass p-6 hover:bg-panel/70 transition-all">
+            <div className="text-3xl mb-3">📺</div>
+            <h2 className="text-xl font-semibold text-text mb-2">Curated Video Lectures</h2>
+            <p className="text-mute mb-4">
+              Search and watch chemistry lectures from YouTube. Focus on Organic, Physical, and Inorganic chemistry.
+            </p>
+            <Link href="/videos" className="text-accent hover:text-accent2 transition-colors text-sm">
+              Explore videos →
+            </Link>
+          </div>
+        </MotionFade>
+
+        <MotionFade delay={0.15}>
+          <div className="glass p-6 hover:bg-panel/70 transition-all">
+            <div className="text-3xl mb-3">📚</div>
+            <h2 className="text-xl font-semibold text-text mb-2">Resource Library</h2>
+            <p className="text-mute mb-4">
+              Upload and download PDFs, textbooks, and study materials. Share resources with the community.
+            </p>
+            <Link href="/resources" className="text-accent hover:text-accent2 transition-colors text-sm">
+              Browse resources →
+            </Link>
+          </div>
+        </MotionFade>
+
+        <MotionFade delay={0.2}>
+          <div className="glass p-6 hover:bg-panel/70 transition-all">
+            <div className="text-3xl mb-3">📝</div>
+            <h2 className="text-xl font-semibold text-text mb-2">Personal Notes</h2>
+            <p className="text-mute mb-4">
+              Write and organize study notes in Markdown. Share publicly or keep them private.
+            </p>
+            <Link href="/notes" className="text-accent hover:text-accent2 transition-colors text-sm">
+              My notes →
+            </Link>
+          </div>
+        </MotionFade>
+
+        <MotionFade delay={0.25}>
+          <div className="glass p-6 hover:bg-panel/70 transition-all">
+            <div className="text-3xl mb-3">👥</div>
+            <h2 className="text-xl font-semibold text-text mb-2">Community Feed</h2>
+            <p className="text-mute mb-4">
+              Connect with other learners. Share notes, discuss topics, and learn together.
+            </p>
+            <Link href="/community" className="text-accent hover:text-accent2 transition-colors text-sm">
+              Join community →
+            </Link>
+          </div>
+        </MotionFade>
+      </div>
+
+      {/* Topics Covered */}
+      <MotionFade delay={0.3}>
+        <div className="glass p-6">
+          <h2 className="text-lg font-semibold text-text mb-4">Topics Covered</h2>
+          <div className="flex flex-wrap gap-2">
+            {[
+              'Organic Chemistry',
+              'Physical Chemistry',
+              'Inorganic Chemistry',
+              'Analytical Chemistry',
+              'Biochemistry',
+              'Chemical Kinetics',
+              'Thermodynamics',
+              'Electrochemistry'
+            ].map((topic) => (
+              <span
+                key={topic}
+                className="px-4 py-2 rounded-full bg-panel/40 text-sm text-mute hover:text-accent hover:bg-panel/60 transition-colors cursor-default"
+              >
+                {topic}
+              </span>
+            ))}
+          </div>
+        </div>
+      </MotionFade>
     </div>
   );
 }

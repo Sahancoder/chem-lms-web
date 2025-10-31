@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root { 
+  color-scheme: dark;
+  --background: #0b1220;
+  --foreground: #e5efff;
 }
 
 @theme inline {
@@ -12,15 +13,71 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body { 
+  height: 100%; 
+  background: #0b1220; 
+  color: #e5efff; 
+}
+
+/* Refined cosmic gradient background */
+.bg-cosmic {
+  background:
+    radial-gradient(900px 500px at 10% 20%, rgba(56,189,248,.12), transparent 70%),
+    radial-gradient(800px 600px at 90% 40%, rgba(129,140,248,.10), transparent 70%),
+    radial-gradient(600px 400px at 50% 90%, rgba(16,185,129,.08), transparent 70%),
+    #0b1220;
+  background-attachment: fixed;
+}
+
+/* Professional glass panel */
+.glass {
+  background: rgba(16, 24, 40, 0.7);
+  border: 1px solid rgba(30, 41, 59, 0.5);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Glass variant with softer shadow */
+.glass-soft {
+  background: rgba(16, 24, 40, 0.6);
+  border: 1px solid rgba(30, 41, 59, 0.4);
+  box-shadow: 0 2px 12px rgba(0,0,0,.2);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+}
+
+/* Utility for page padding */
+.page-padding {
+  @apply px-4 md:px-6 lg:px-10;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 18, 32, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
 }
